@@ -1,0 +1,68 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+#out{
+    background-color:rgb(135, 173, 60);
+    width: 100wv;
+    height: 100vh;
+    /* background: linear-gradient(to top, #e78b8b, #9da87d, #36368f00,rgb(184, 88, 88),rgba(101, 168, 99, 0.692)); */
+}
+#in{
+    background-color: rgb(8, 12, 240);
+    width: 70%;
+    height: 80%;
+    border-radius: 10px;
+
+}
+#logo{
+    /* background-color: bisque; */
+    height: 100%;
+}
+
+#login{
+    /* background-color: chocolate; */
+    height: 100%;
+}
+label{
+    color: gray;
+}
+#login input{
+    width: 80%;
+    height: 40px;
+    padding-left: 5px;
+}
+input:focus{
+    outline: none;
+}
+#submit{
+    width: 80%;
+    height: 45px;
+    text-transform:capitalize;
+    outline: none;
+    border: none;
+    background-color: green;
+    color: white;
+    font-size: large;
+    font-weight: 600;
+    
+}
+#submit:hover{
+    background-color: rgb(1, 160, 1);
+    transition: 1s;
+
+}
+#signup{
+    color: #ffff;
+}
+@media(max-width:576px){
+    #logo{
+        /* visibility:; */
+        display: none;
+       
+    }
+    #login input{
+        font-size: smaller;
+    }
+}
