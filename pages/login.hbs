@@ -17,15 +17,17 @@
         </div>
         <div id="login" class="col-md-6 col-sm-8 pt-4 px-sm-5 d-flex flex-column justify-content-center container-fluid">
             <h2 class="my-4 mx-0 text-white fs-1 ">Login to blog</h2>
-            <form action="" method="" onsubmit="return login()">
+            <form action="" method="" >
                 <label for="email" class="fs-5">Email <i class="fa-solid fa-envelope"></i></label> <br>
-                <input type="email" id="email" placeholder="Email" >
-                <small id="p1" class="text-danger "></small><br> <br>
+                <input type="email" id="email" placeholder="Email" ><br>
+                <small id="p1" class="text-danger "></small><br> 
                 <label for="password" class="fs-5 ">Password <i class="fa-sharp fa-solid fa-key"></i></i></label><br>
-                <input type="password" id="password" placeholder="Password">  <br> <br> 
-                <button id="submit"  >log in</button> 
-                <p id="signup" class="mt-2 ">If not have an Account?<a href="/signup" class="text-decoration-none fw-medium"> Sign Up For Blog</a></p>
+                <input type="password" id="password" placeholder="Password">  <br>
+                <small id="p2"></small> <br>
             </form>
+                <button id="submit"  onclick="login()">log in</button> 
+                <p id="signup" class="mt-2 ">If not have an Account?<a href="/signup" class="text-decoration-none fw-medium"> Sign Up</a></p>
+
         </div>
     </div>
  </div>

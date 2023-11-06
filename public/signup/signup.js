@@ -1,6 +1,6 @@
 function emailvalid(){
     let email=document.getElementById('email').value;
-    let che=/^([a-z0-9/.]+)@([a-z0-9]{2,16})\.([a-z]{2,6})$/i
+    let che=/^([a-z0-9/.]+)@([a-z0-9]{2,16})\.([a-z]{3,6})$/i
     // console.log(che.test(email));
     if(che.test(email)){
         // console.log('mail ok');

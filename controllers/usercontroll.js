@@ -21,5 +21,32 @@ const dosignup=(req,res)=>{
 
     })
 }
-
-module.exports={loginpage,signup,dosignup};
+const dologin=(req,res)=>{
+    console.log(req.body);
+    USER.find({email:req.body.email})
+        .then((respo)=>{
+        if(respo.length>0){
+            // res.json({login:true})
+            // console.log("email is ok");
+            console.log(respo[0].name);//print the document if its found
+            USER.find({email:req.body.email,password:req.body.password})
+                .then((respa)=>{
+                    if(respa.length>0){
+                        res.json({login:1})
+                        console.log(respa)
+                    }else{
+                        res.json({login:2})
+                        console.log("password is wrong");
+                    } 
+                })
+        }else{
+            res.json({login:false})
+            console.log("Email is not registered");
+        }
+          })
+}
+const homepage=(req,res)=>{
+    // console.log("homaepage");
+    res.render('home.hbs')
+}
+module.exports={loginpage,signup,dosignup,dologin,homepage};
