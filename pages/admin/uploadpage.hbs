@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>blog content upload</h1>
+    <form action="/admin/createblog" method="post" enctype="multipart/form-data">
+        <label for=""> title</label><br>
+        <input type="text" name="title" id="title"><br>
+        <label for="">content</label><br>
+        <textarea name="content" id="content" cols="30" rows="10"></textarea><br>
+        <label for="">image</label><br>
+        <input type="file" name="images" multiple accept="image/*" id="imageInput" onchange="showimages()" required><br><br>
+        <div id="imagePreview"></div>
+        <button type="submit">upload</button>
+    </form>
+    <script src="/admin/upload.js"></script>
+</body>
+</html>

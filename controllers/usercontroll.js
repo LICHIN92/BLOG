@@ -2,11 +2,11 @@ const mongoose=require('mongoose')
 const USER=require("../models/usermodel").users; //importing only that model named as 'users'
 const loginpage=(req,res)=>{
 
-    const img="/login/logo.png"
-    res.render('login',{img})
+    const img="/user/login/logo.png"
+    res.render('user/login',{img})
 }
 const signup=(req,res)=>{
-    res.render('signup.hbs')
+    res.render('user/signup.hbs')
 }
 const dosignup=(req,res)=>{
     console.log(req.body);
@@ -46,7 +46,7 @@ const dologin=(req,res)=>{
           })
 }
 const homepage=(req,res)=>{
-    // console.log("homaepage");
-    res.render('home.hbs')
+    res.render('user/home.hbs')
 }
+
 module.exports={loginpage,signup,dosignup,dologin,homepage};
