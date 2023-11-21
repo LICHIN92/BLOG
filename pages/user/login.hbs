@@ -11,11 +11,11 @@
 </head>
 <body>
  <div id="out" class="container-fluid m-0 p-0 d-flex flex-column align-items-center justify-content-center ">
-    <div id="in" class="row ">
-        <div id="logo" class="col-md-6 col-sm-4  mt-4">
+    <div id="in" class="row ps-lg-5">
+        <div id="logo" class="col-md-5 col-sm-4  mt-4">
             <img class="w-100 h-75 " id="image" src="{{img}}" alt="">
         </div>
-        <div id="login" class="col-md-6 col-sm-8 pt-4 px-sm-5 d-flex flex-column justify-content-center container-fluid">
+        <div id="login" class="col-md-7 col-sm-8 pt-4 px-sm-5 px-md-2 ps-lg-3  d-flex flex-column justify-content-center container-fluid">
             <h2 class="my-4 mx-0 text-white fs-1 ">Login to blog</h2>
             <form action="" method="" >
                 <label for="email" class="fs-5">Email <i class="fa-solid fa-envelope"></i></label> <br>
@@ -23,10 +23,10 @@
                 <small id="p1" class="text-danger "></small><br> 
                 <label for="password" class="fs-5 ">Password <i class="fa-sharp fa-solid fa-key"></i></i></label><br>
                 <input type="password" id="password" placeholder="Password">  <br>
-                <small id="p2"></small> <br>
+                <small id="p2" class="text-danger mb-2"></small> <br>
             </form>
-                <button id="submit"  onclick="login()">log in</button> 
-                <p id="signup" class="mt-2 ">If not have an Account?<a href="/signup" class="text-decoration-none fw-medium"> Sign Up</a></p>
+                <button id="submit" class="mt-2" onclick="login()">log in</button> 
+                <p id="signup" class="mt-2">If not have an Account?<a href="/signup" class="text-decoration-none fw-medium"> Sign Up</a></p>
 
         </div>
     </div>

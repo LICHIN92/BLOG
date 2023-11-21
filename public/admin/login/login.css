@@ -1,0 +1,104 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+#outer_div{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    /* position: relative; */
+}
+#form_div{
+    width: 50%;
+    height: 50%;
+    background-color:white;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    border-radius: 5px;
+    color: white;
+    position: absolute;
+    box-shadow: 5px 1px 10px 5px rgba(0, 0, 0, 0.185);
+}
+#login_div{
+    width: 70%;
+    height: 70px;
+    position: absolute;
+    top: -16px;
+    font-family: cursive;
+    font-weight:normal;
+    background-color:#9D02AC;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#button{
+    height: 15%;
+    width: 40%;
+    position: absolute;
+    background-color: #9D02AC;
+    border: none;
+    outline: none;
+    color: white;
+    font-size: larger;
+    bottom: -15px;
+    cursor: pointer;
+    border-radius: 5px;
+    
+}
+input{
+    border: none;
+    outline: none;
+    border-bottom: 1px solid gray;
+    width: 220px;
+    height:50%;
+}
+p{
+    position: absolute;
+    color: blue;
+    bottom: -55px;
+}
+#emailvalid{
+    position: absolute;
+    color: blue;
+}
+#passwordvalid{
+    position: absolute;
+    color: blue;
+}
+@media(max-width:800px){
+    #form_div{
+        width:80% ;
+    }
+    #outer_div{
+        margin-inline: 2px;
+    }
+
+}
+@media(max-width:430px){
+    #login_div{
+        font-size:small;
+    }
+    #button{
+        font-size: small;
+    }
+}
+@media(max-width:340px){
+    #form_div{
+        width:99% ;
+        margin-inline: 1px;
+    }
+}
+@media(max-width:230px){
+    #login_div{
+        font-size:10px;
+    }
+}

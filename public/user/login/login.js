@@ -35,8 +35,8 @@ function login(){
                 document.getElementById("p2").innerHTML="Wrong Password"
                 alert("password is wrong")
             }else{
-                alert("email is not registered")
-                document.getElementById("p1").innerHTML="Email is registered"
+                document.getElementById("p1").innerHTML="Email is not registered";
+                alert(logindata.email+" is not registered")
             }
         })
         
