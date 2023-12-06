@@ -34,6 +34,7 @@ function login(){
                 console.log(res);
                 document.getElementById("p2").innerHTML="Wrong Password"
                 alert("password is wrong")
+                document.getElementById("password").style.border="2px solid red"
             }else{
                 document.getElementById("p1").innerHTML="Email is not registered";
                 alert(logindata.email+" is not registered")
@@ -43,4 +44,9 @@ function login(){
     }else{
         return false;
     }
+}
+document.getElementById("password").addEventListener("keydown",key)
+function key(){
+    document.getElementById("p2").innerText="";
+    document.getElementById("password").style.border="none"
 }

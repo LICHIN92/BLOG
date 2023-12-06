@@ -3,22 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>CreateBlog</title>
+   
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
-<body>
-    <h1>blog content upload</h1>
-    <form action="/admin/createblog" method="post" enctype="multipart/form-data">
-        <label for=""> title</label><br>
-        <input type="text" name="title" id="title"><br>
+<body class="bg-success-subtle">
+  <!-- navbar -->
+    <nav class="navbar navbar-expand-lg bg-info p-3 container-fluid">
+        <div class="container-fluid">
+          <a class="navbar-brand text-white" href="#">Blog</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse  d-lg-flex flex-lg-row justify-content-lg-between" id="navbarNav">
+            <ul class="navbar-nav me-lg-5">
+              <li class="navbar-brand nav-item mx-lg-3">
+                {{adminDetails.name}}
+              </li>
+              {{!-- <li class="navbar-brand nav-item">
+                {{adminDetails.email}}
+              </li>  --}}
+              {{!-- <li class="nav-item">
+                <a class="nav-link" href="#">Pricing</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+              </li>  --}}
+          <span  class="nav-item "><a class="nav-link nav-item" href="/admin/home">HOME</a></span>  
 
-        <label for="">content</label><br>
-        <textarea name="content" id="content" cols="30" rows="10"></textarea><br>
-        
-        <label for="">image</label><br>
-        <input type="file" name="images" multiple accept="image/*" id="imageInput" onchange="showimages()" required><br><br>
-        <div id="imagePreview"></div>
-        <button type="submit">upload</button>
-    </form>
+            </ul>
+          
+          <button type="button" class="btn btn-danger nav-item" onclick="adminlogout()">Logout</button>
+            
+          
+          </div>
+          
+        </div>
+      </nav>
+  <!-- navbar -->
+    <div id="container" class="container-fluid px-m-3 px-0 d-flex flex-column justify-content-center align-items-center pt-2 bg-success-subtle h-100">
+        <h1 class="text-decoration-underline">Blog Content Upload</h1>
+        <form action="/admin/createblog" method="post" enctype="multipart/form-data">
+            <label for=""> Title:</label><br>
+            <input type="text" name="title" id="title" class="w-100" required placeholder="Title of your content"><br>
+    
+            <label for="">Content:</label><br>
+            <textarea name="content" id="content" cols="30" rows="10" class="w-100" required placeholder="type your content...."></textarea><br>
+            
+            <label for="">Image:</label><br>
+            <input type="file" name="images" multiple accept="image/*" id="imageInput" onchange="showimages()" required><br><br>
+            <div id="imagePreview"></div>
+            <button type="submit" id="upload" class="w-50 my-3">Upload...</button>
+        </form>
+    </div>
+ 
     <script src="/admin/upload.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
 </html>

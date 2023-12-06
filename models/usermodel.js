@@ -7,6 +7,12 @@ const userSchema=mongoose.Schema({
                 email:{type:"string",
                        require:true
                     },
+                gender:{type:"string",
+                       require:true
+                    },    
+                mobile:{type:"number",
+                        require:true
+                    },    
                 password:{type:"string",
                           require:"true"
                     }         

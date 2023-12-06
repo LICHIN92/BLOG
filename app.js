@@ -7,6 +7,7 @@ const admin=require('./routes/admin');
 const connectDB=require('./config/dbconfig');
 connectDB();
 
+require('dotenv').config()
 const cookieparser=require('cookie-parser')
 
 app.set('view engine',"hbs")
@@ -18,13 +19,18 @@ app.use(express.urlencoded({extended:true}))
 app.use(express.json())
 app.use(cookieparser())
 
-// app.use('/',(req,res,next)=>{
-//         res.set('cache-control','no-store')
-//         next()
-// })
+app.use('/',(req,res,next)=>{
+        res.set('cache-control','no-store')
+        next()
+})
 app.use('/',user)
+
+// app.use('/admin',(req,res,next)=>{
+//         res.set('cache-control','no-store')
+//         next()   
+// })
 app.use('/admin',admin)
 
-app.listen(3000,()=>{
+app.listen(process.env.PORT,()=>{
         console.log("running");
 })

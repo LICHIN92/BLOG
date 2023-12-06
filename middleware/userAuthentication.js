@@ -2,7 +2,7 @@ const jwt=require('jsonwebtoken')
 const getUserData=require("../helper/helper")
 const userAthentication=(req,res,next)=>{
     if(req?.cookies?.userJwt){
-        const isLoggedin=jwt.verify(req.cookies.userJwt,"secretkey")
+        const isLoggedin=jwt.verify(req.cookies.userJwt,process.env.Jwt_Key)
         if(isLoggedin){
             // console.log(isLoggedin);
             const user=parseJwt(req.cookies.userJwt)

@@ -7,6 +7,10 @@ const blogschema=mongoose.Schema({
                     createdAt:{type:Date,
                               default:new Date()
                         },
+                    createdBy:{type:mongoose.Types.ObjectId,
+                               ref:"users"                               
+                        }, 
+                    // createdUser:{type:},       
                     content:{type:String,
                             required:true
                         },

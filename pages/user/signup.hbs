@@ -8,25 +8,38 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
 <body class=" container-fluid row pt-5 ps-2 ps-md-5">
-  <div id="box" class="ps-2 p-sm-5 pt-3 col-12 col-sm-6 ms-sm-5 ms-md-3 col-md-5  ps-md-5 ps-sm-4 mx-md-3 ms-2 col-lg-6 container-fluid">
+ <div id="box" class="ps-2 p-sm-5 px-sm-1 pt-sm-2 mb-4 pe-0 mb-sm-4 col-12 col-sm-6 ms-sm-5 ms-md-3 col-md-5  ps-md-5 ps-sm-4 mx-md-3 ms-2 col-lg-6 container-fluid">
     <h1 class="">Sign up to Blog</h1>
 
     <form action="" method="">
         <label for="name" class="mt-1">Full Name</label><br>
         <input type="text" id="name" class="" placeholder="Name"> <br> 
-        <small id="namevalid"></small>
-        <br>
+        <small id="namevalid"></small><br>
+
         <label for="email">Email</label><br>
-        <input type="email" id="email" placeholder="Email"><br>
-        <small id="emailvalid"></small> <br>
+        <input type="email" id="email" placeholder="Email" ><br>
+        <small id="emailvalid"></small><br>
+
+        <label for="">Gender:</label><small id="gensmall"> </small><br>
+        <input type="radio" name="GENDER" id="gm" value="Male">
+        <label for="gm" class="gen">Male</label>
+        <input type="radio" name="GENDER" id="gf" value="Female">
+        <label for="gf"class="gen">Female</label>
+        <input type="radio" name="GENDER" id="co" value="Custom">
+        <label for="co" class="gen">Custom</label><br><br>
+
+        <label for="mobile">Mobile:</label><br>
+        <input type="text" name="mobile" id="mobile" placeholder="Mobile"><br>
+        <small id="mobilevalid"></small><br>
+
         <label for="password">Password</label><br>
         <input type="password" id="password" placeholder="Password"><br>
         <small id="passvalid"></small>
-        <br> <br>
+        <br> 
     </form>
-    <input type="submit" id="submit" onclick="submit()">
+    <input type="submit" id="submit" onclick="submit()" class="mt-3"> 
         
-  </div>  
+  </div> 
 <script src="/user/signup/signup.js"></script>   
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 

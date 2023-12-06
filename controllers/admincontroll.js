@@ -2,9 +2,14 @@ const mongoose=require("mongoose")
 const multer=require('multer')
 const ADMIN=require('../models/adminmodel').admins
 const BLOGS=require("../models/blogermodel")
+const jwt=require("jsonwebtoken")
 
 const adminlogin=(req,res)=>{
-    res.render('admin/login.hbs')
+    if(req.cookies.AdminJwt){
+        res.redirect('/admin/upload')
+    }else{
+        res.render('admin/login.hbs')
+    }
 }
 const  admincontroll=(req,res)=>{
     res.render('admin/signin')
@@ -23,7 +28,6 @@ const adminsign=(req,res)=>{
                 })
         }else{
             console.log('exist');
-            // console.log(response)
             res.send({signin:false})
         }
     })
@@ -39,8 +43,15 @@ const login=(req,res)=>{
             if(resp.length>0){
               ADMIN.find({email:req.body.email,password:req.body.password})
                     .then((respo)=>{
-                        // console.log(respo);
                         if(respo.length>0){
+                            console.log(respo);
+                            const adminToken=jwt.sign({adminID:respo[0]._id},"adminkey",{expiresIn:"2d"})
+                            res.cookie('AdminJwt',adminToken,{
+                                httpOnly:true,
+                                samesite:'lax',
+                                secure:false,
+                                maxAge:24*60*60*1000
+                            })
                             console.log('email and  password are correct');
                             res.json({login:2})
                         }else{
@@ -54,8 +65,7 @@ const login=(req,res)=>{
             }
         })
 }
-
-const createblog=(req,res)=>{
+const  createblog=(req,res)=>{
     const fileStorage=multer.diskStorage({
         destination:(req,files,cb)=>{
             cb(null,"public/uploads");
@@ -79,10 +89,37 @@ const createblog=(req,res)=>{
                 
                 })
             console.log(req.files);//print the uploaded files detailes
-            console.log(req.body);
+            // console.log(req.body);
 
         }  
     })
 }
+const home=(req,res)=>{
+    BLOGS.find().then((blogdata)=>{
+        res.render('admin/home',{data:blogdata}) 
 
-module.exports={adminlogin,admincontroll,adminsign,pageupload,createblog,login};
+    })
+}
+const deletepost=(req,res)=>{
+    console.log(req.body.postId);
+    // BLOGS.find({_id:req.body.postId}).then((data)=>{
+    //     console.log(data);
+    // })
+    BLOGS.findOneAndDelete({_id:req.body.postId}).then(dd=>{
+        console.log(dd);
+    })
+     
+}
+const logout=(req,res)=>{
+    res.cookie('AdminJwt',null,{
+        httpOnly:true,
+        samesite:'lax',
+        secure:false,
+        maxAge:0
+    })
+    // req.cookies.AdminJwt=null;
+    res.clearCookie('AdminJwt')
+    res.redirect('/admin')
+}
+
+module.exports={adminlogin,admincontroll,adminsign,pageupload,createblog,login,home,deletepost,logout};

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin_HomePage</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+<body>
+   <!-- navbar -->
+    <nav class="navbar navbar-expand-lg bg-info p-3 ">
+        <div class="container-fluid">
+          <a class="navbar-brand text-white" href="#">Blog</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse  d-lg-flex flex-lg-row justify-content-lg-between" id="navbarNav">
+            <ul class="navbar-nav me-lg-5">
+              <li class="navbar-brand nav-item mx-lg-3">
+                {{adminDetails.name}}
+              </li>
+              <li class="navbar-brand nav-item">
+                <a href="/admin/upload" class="text-decoration-none text-white">CreateBlog</a>
+              </li> 
+              <!-- <li class="nav-item">
+                <a class="nav-link" href="#">Pricing</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+              </li> -->
+            </ul>
+          <button type="button" class="btn btn-danger nav-item" onclick="adminlogout()">Logout</button>
+            
+          
+          </div>
+          
+        </div>
+      </nav>
+    <!-- navbar -->
+
+    {{!-- table --}}
+    {{!-- <div class="container-fluid"> --}}
+    <table class="mt-1 mb-3 container-fluid">
+        <thead class=" text-center bg-dark text-white py-2 ">
+            <th class="border border-black py-3">Id</th>
+            <th class="border border-black">Data</th>
+            <th class="border border-black">Time</th>
+            <th class="border border-black">Content</th>
+            <th class="border border-black">Action</th>
+        </thead>
+        <tbody class="boder bg-dark-subtle">
+            {{#each data}}
+            <tr>
+                <td class="border border-black px-1">{{this._id}}</td>
+                <td class="border border-black px-1">{{this.title}}</td>
+                <td class="border border-black px-1">{{this.createdAt}}</td>
+                <td class="border border-black px-1">{{this.content}}</td>
+                <th class="border border-black px-2">
+                   <a class="me-2" href="/admin/viewpage?id={{this._id}}">View</a>
+                   <button class="btn btn-outline-danger my-2 me-1" onclick="deletepost('{{this._id}}')">Delete</button>
+                </th>
+            </tr>
+         
+           {{/each}}
+        </tbody>
+    </table>
+    {{!-- </div> --}}
+<script src="/admin/delete.js"></script>    
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</body>
+</html>
